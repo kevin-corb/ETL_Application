@@ -30,8 +30,10 @@ This command will start Postgres container in detached mode (`-d` flag). Postgre
 ```bash
 pip install -r requirements.txt
 ```
+2. Load dataset at the specified location:
+./test-data/test-data/
 
-2. Creating the required tables on Postgres and pulling the files from the `test-data` directory:
+3. Creating the required tables on Postgres and pulling the files from the `test-data` directory:
 
 ```bash
 python main.py
