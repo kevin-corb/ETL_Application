@@ -1,0 +1,24 @@
+version: '3.8'
+
+volumes:
+  pinotController1:
+  pinotServer1:
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: db/Dockerfile
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: transactions
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
